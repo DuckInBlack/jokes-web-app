@@ -1,4 +1,4 @@
-package pl.pp.spring.jokeswebapp.controlers;
+package pl.pp.spring.jokeswebapp.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
