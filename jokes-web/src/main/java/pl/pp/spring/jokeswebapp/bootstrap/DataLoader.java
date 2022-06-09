@@ -30,7 +30,7 @@ public class DataLoader implements CommandLineRunner {
                 "Kujon: Nie był w cale taki trudny. No powiedz z czym miałeś problem?\n" +
                 "Zwykły uczeń: No np było takie pytanie. Gdzie jest centralny ośrodek kontroli oddawania moczu?\n" +
                 "Kujon: No to jest łatwa pytanie. No oczywiście że w korze mózgowej.\n" +
-                "Zwykły uczeń: Kurdę, a ja napisałem że w warszawie.\s");
+                "Zwykły uczeń: Kurdę, a ja napisałem że w warszawie.\n");
 
         jokeService.save(joke1);
         jokeService.save(joke2);
