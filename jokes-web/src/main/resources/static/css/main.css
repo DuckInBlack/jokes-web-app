@@ -2,23 +2,23 @@ body {
     background-color: #DDD;
 }
 
-#wrapper{
+#wrapper {
     width: 900px;
     margin-left:auto;
     margin-right:auto;
 }
 
-.joke{
+.joke {
     border: 2px solid black;
     border-radius: 10px;
     margin-top: 30px;
 }
 
-.content{
+.content {
     padding-left: 10px;
 }
 
-.title{
+.title {
     border-radius: 10px;
     text-align: center;
     background-color: #777;
