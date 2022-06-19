@@ -2,8 +2,8 @@ package pl.pp.spring.jokeswebapp.model;
 
 import java.util.List;
 
-public class Category {
-    private Long id;
+public class Category extends BaseEntity{
+
     private String name;
     private List<Joke> jokes;
 
@@ -12,14 +12,6 @@ public class Category {
 
     public Category(String name) {
         this.name = name;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -36,5 +28,13 @@ public class Category {
 
     public void setJokes(List<Joke> jokes) {
         this.jokes = jokes;
+    }
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "id='" + getId() +
+                "name='" + name + '\'' +
+                '}';
     }
 }

@@ -4,7 +4,6 @@ import pl.pp.spring.jokeswebapp.model.Category;
 
 import java.util.List;
 
-public interface CategoryService {
-    List<Category> findAll();
-    Category save(Category category);
+public interface CategoryService extends BaseService<Category> {
+
 }
