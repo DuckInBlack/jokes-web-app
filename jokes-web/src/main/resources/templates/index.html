@@ -7,11 +7,20 @@
 </head>
 <body>
     <div id="wrapper">
-        <h1>Witaj na stronie z sucharami</h1>
-        <div class="joke" th:each="joke : ${jokes}">
-            <h2 class="title" th:text="${joke.title}">Tytuł</h2>
-            <pre class="content" th:text="${joke.content}">Content</pre>
+        <h1 class="header">Witaj na stronie z sucharami</h1>
+        <div id="categories">
+            <h3 class="header">Kategorie</h3>
+            <div class="category" th:each="category : ${categories}" th:text="${category.name}">
+                kategoria
+            </div>
         </div>
+        <div id="jokes">
+            <div class="joke" th:each="joke : ${jokes}">
+                <h2 class="title" th:text="${joke.title}">Tytuł</h2>
+                <pre class="content" th:text="${joke.content}">Content</pre>
+            </div>
+        </div>
+        <div class="clear: both;"></div>
     </div>
 </body>
 </html>
