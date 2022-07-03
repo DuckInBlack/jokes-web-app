@@ -22,6 +22,26 @@ body {
     text-align: center;
 }
 
+.add-button {
+    background-color: #DDD;
+    border: 1px solid #00AA00;
+    border-radius: 5px;
+    width: 150px;
+    padding: 3px;
+    text-align: center;
+}
+
+.add-button:hover {
+    transition-duration: 0.4s;
+    background-color: #00AA00;
+    color: white;
+}
+
+.inner-link {
+    color: black;
+    text-decoration: none;
+}
+
 .category {
     width: 180px;
     border: 1px solid black;
