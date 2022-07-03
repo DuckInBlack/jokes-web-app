@@ -2,10 +2,7 @@ package pl.pp.spring.jokeswebapp.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import pl.pp.spring.jokeswebapp.model.Category;
 import pl.pp.spring.jokeswebapp.model.Joke;
 import pl.pp.spring.jokeswebapp.services.CategoryService;
@@ -32,6 +29,13 @@ public class JokeController {
         return "jokes/add";
     }
 
+    @RequestMapping("/jokes")
+    public String showIndex(Model model, @RequestParam("categoryId") Long categoryId) {
+        model.addAttribute("jokes", categoryService.findById(categoryId).getJokes());
+        model.addAttribute("categories", categoryService.findAll());
+        return "index";
+    }
+
     @PostMapping("/jokes/add")
     public String addJoke(@ModelAttribute Joke joke, @RequestParam("category") List<Long> categoryIds){
         System.out.println(joke);
@@ -39,7 +43,10 @@ public class JokeController {
         List<Category> categories = new ArrayList<>();
 
         for(Long id: categoryIds){
-            categories.add(categoryService.findById(id));
+            Category category = categoryService.findById(id);
+            category.getJokes().add(joke);
+            categoryService.save(category);
+            categories.add(category);
         }
 
         System.out.println(categories);
