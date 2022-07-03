@@ -1,11 +1,12 @@
 body {
     background-color: #DDD;
+    margin: 0;
 }
 
 #wrapper {
     width: 900px;
-    margin-left:auto;
-    margin-right:auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #categories {
@@ -14,17 +15,16 @@ body {
 }
 
 #jokes {
-     width: 700px;
-     float: left;
+    width: 700px;
+    float: left;
 }
-
 .header {
     text-align: center;
 }
 
 .add-button {
-    background-color: #DDD;
-    border: 1px solid #00AA00;
+    background-color: #009879;
+    border: 1px solid black;
     border-radius: 5px;
     width: 150px;
     padding: 3px;
@@ -32,9 +32,8 @@ body {
 }
 
 .add-button:hover {
-    transition-duration: 0.4s;
-    background-color: #00AA00;
-    color: white;
+    cursor: pointer;
+    background-color: #00A98A;
 }
 
 .inner-link {
@@ -43,10 +42,10 @@ body {
 }
 
 .category {
-    width: 180px;
     border: 1px solid black;
     border-radius: 5px;
     text-align: center;
+    width: 180px;
     padding: 3px;
     margin-top: 5px;
     background-color: #CCC;
@@ -63,15 +62,63 @@ body {
     margin-top: 30px;
 }
 
-.content {
-    padding-left: 10px;
-}
-
 .title {
-    border-radius: 10px;
     text-align: center;
-    background-color: #BBB;
+    background-color: #CCC;
     border-bottom: 1px dashed #555;
+    border-radius: 10px;
     margin: 0;
     padding: 10px;
+}
+
+.content {
+     padding-left: 10px;
+}
+
+.main-button {
+  align-items: center;
+  background-color: #DDD;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 10px;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main-button:hover,
+.main-button:focus {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.main-button:hover {
+  transform: translateY(-2px);
+}
+
+.main-button:active {
+  background-color: #F0F0F1;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: rgba(0, 0, 0, 0.65);
+  transform: translateY(0);
 }
