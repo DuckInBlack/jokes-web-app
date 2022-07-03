@@ -9,6 +9,7 @@ public class Joke extends BaseEntity{
     private List<Category> categories = new ArrayList<>();
 
     public Joke() {
+
     }
 
     public Joke(String title, String content) {
@@ -24,7 +25,6 @@ public class Joke extends BaseEntity{
                 ", content='" + content + '\'' +
                 '}';
     }
-
     public String getTitle() {
         return title;
     }
