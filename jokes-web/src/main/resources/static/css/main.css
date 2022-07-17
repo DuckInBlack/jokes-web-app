@@ -74,3 +74,31 @@ body {
 .content {
      padding-left: 10px;
 }
+
+.main-button {
+  text-align: center;
+  background-color: #DDD;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main-button:hover,
+.main-button:focus {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: rgba(0, 0, 0, 0.65);
+  transform: translateY(-2px);
+}
+
+.main-button:active {
+  background-color: #F0F0F1;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: rgba(0, 0, 0, 0.65);
+  transform: translateY(0);
+}

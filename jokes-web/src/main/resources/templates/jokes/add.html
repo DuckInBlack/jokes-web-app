@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1 class="header">Dodaj nowy żart</h1>
-    <a class="inner-link" th:href="@{/index}"><button class="main-button" role="button">Strona Główna</button></a>
+<a class="inner-link" th:href="@{/index}"><div class="main-button">Strona Główna</div></a>
 
 <div id="form-container">
     <form method="post" th:action="@{/jokes/add}" th:object="${joke}">

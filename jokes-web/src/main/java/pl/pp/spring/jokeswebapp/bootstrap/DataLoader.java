@@ -4,22 +4,47 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import pl.pp.spring.jokeswebapp.model.Category;
 import pl.pp.spring.jokeswebapp.model.Joke;
+import pl.pp.spring.jokeswebapp.model.User;
+import pl.pp.spring.jokeswebapp.model.UserProfile;
 import pl.pp.spring.jokeswebapp.services.CategoryService;
 import pl.pp.spring.jokeswebapp.services.JokeService;
+import pl.pp.spring.jokeswebapp.services.UserProfileService;
+import pl.pp.spring.jokeswebapp.services.UserService;
 
 @Component
 public class DataLoader implements CommandLineRunner {
 
     private final JokeService jokeService;
     private final CategoryService categoryService;
+    private final UserService userService;
+    private final UserProfileService userProfileService;
 
-    public DataLoader(JokeService jokeService, CategoryService categoryService) {
+    public DataLoader(JokeService jokeService, CategoryService categoryService, UserService userService, UserProfileService userProfileService) {
         this.jokeService = jokeService;
         this.categoryService = categoryService;
+        this.userService = userService;
+        this.userProfileService = userProfileService;
     }
 
     @Override
     public void run(String... args) {
+
+        User jankowalski = new User();
+        jankowalski.setUsername("jankowalski");
+        jankowalski.setEmail("jankowalski@gmail.com");
+        jankowalski.setPassword("qwerty");
+
+        UserProfile jankowalskiProfile = new UserProfile();
+        jankowalskiProfile.setFirstName("Jan");
+        jankowalskiProfile.setLastName("Kowalski");
+
+        jankowalski.setUserProfile(jankowalskiProfile);
+
+        User michalnowak = new User();
+        michalnowak.setUsername("michalnowak");
+        michalnowak.setEmail("michalnowak@gmail.com");
+        michalnowak.setPassword("123456");
+
 
         Joke joke1 = getExampleJoke1();
         Joke joke2 = getExampleJoke2();
@@ -42,6 +67,10 @@ public class DataLoader implements CommandLineRunner {
 
         jokeService.save(joke1);
         jokeService.save(joke2);
+
+        userService.save(jankowalski);
+        userService.save(michalnowak);
+        userProfileService.save(jankowalskiProfile);
     }
 
     private Joke getExampleJoke2() {
