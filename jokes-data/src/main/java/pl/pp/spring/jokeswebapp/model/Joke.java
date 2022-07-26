@@ -2,6 +2,7 @@ package pl.pp.spring.jokeswebapp.model;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -21,14 +22,6 @@ public class Joke extends BaseEntity {
     @JoinColumn(name = "user_id")
     private User user;
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     public Joke() {
 
     }
@@ -36,6 +29,11 @@ public class Joke extends BaseEntity {
     public Joke(String title, String content) {
         this.title = title;
         this.content = content;
+    }
+
+    public void addCategory(Category category){
+        categories.add(category);
+        category.getJokes().add(this);
     }
 
     @Override
@@ -69,5 +67,14 @@ public class Joke extends BaseEntity {
 
     public void setCategories(Set<Category> categories) {
         this.categories = categories;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+        user.getJokes().add(this);
     }
 }
