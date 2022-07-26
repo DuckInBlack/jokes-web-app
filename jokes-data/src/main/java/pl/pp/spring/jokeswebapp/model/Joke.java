@@ -1,13 +1,11 @@
 package pl.pp.spring.jokeswebapp.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Lob;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Joke extends BaseEntity{
+public class Joke extends BaseEntity {
     private String title;
 
     @Lob
@@ -15,6 +13,18 @@ public class Joke extends BaseEntity{
 
     @Transient
     private List<Category> categories = new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Joke() {
 
@@ -33,6 +43,7 @@ public class Joke extends BaseEntity{
                 ", content='" + content + '\'' +
                 '}';
     }
+
     public String getTitle() {
         return title;
     }

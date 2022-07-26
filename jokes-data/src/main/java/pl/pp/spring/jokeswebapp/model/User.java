@@ -1,9 +1,11 @@
 package pl.pp.spring.jokeswebapp.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-@Table(name="user_main")
+@Table(name = "user_main")
 public class User extends BaseEntity {
 
     @Column(name = "userName")
@@ -17,6 +19,17 @@ public class User extends BaseEntity {
 
     @OneToOne(cascade = CascadeType.ALL)
     private UserProfile userProfile;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private Set<Joke> jokes = new HashSet<>();
+
+    public Set<Joke> getJokes() {
+        return jokes;
+    }
+
+    public void setJokes(Set<Joke> jokes) {
+        this.jokes = jokes;
+    }
 
     public String getUsername() {
         return username;
