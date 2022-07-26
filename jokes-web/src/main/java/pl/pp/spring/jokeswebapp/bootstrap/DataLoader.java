@@ -8,7 +8,6 @@ import pl.pp.spring.jokeswebapp.model.User;
 import pl.pp.spring.jokeswebapp.model.UserProfile;
 import pl.pp.spring.jokeswebapp.services.CategoryService;
 import pl.pp.spring.jokeswebapp.services.JokeService;
-import pl.pp.spring.jokeswebapp.services.UserProfileService;
 import pl.pp.spring.jokeswebapp.services.UserService;
 
 @Component
@@ -17,13 +16,11 @@ public class DataLoader implements CommandLineRunner {
     private final JokeService jokeService;
     private final CategoryService categoryService;
     private final UserService userService;
-    private final UserProfileService userProfileService;
 
-    public DataLoader(JokeService jokeService, CategoryService categoryService, UserService userService, UserProfileService userProfileService) {
+    public DataLoader(JokeService jokeService, CategoryService categoryService, UserService userService) {
         this.jokeService = jokeService;
         this.categoryService = categoryService;
         this.userService = userService;
-        this.userProfileService = userProfileService;
     }
 
     @Override
@@ -37,6 +34,7 @@ public class DataLoader implements CommandLineRunner {
         UserProfile jankowalskiProfile = new UserProfile();
         jankowalskiProfile.setFirstName("Jan");
         jankowalskiProfile.setLastName("Kowalski");
+        jankowalskiProfile.setUser(jankowalski);
 
         jankowalski.setUserProfile(jankowalskiProfile);
 
@@ -70,7 +68,7 @@ public class DataLoader implements CommandLineRunner {
 
         userService.save(jankowalski);
         userService.save(michalnowak);
-        userProfileService.save(jankowalskiProfile);
+
     }
 
     private Joke getExampleJoke2() {
