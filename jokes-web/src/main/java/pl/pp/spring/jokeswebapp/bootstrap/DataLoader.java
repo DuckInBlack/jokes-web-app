@@ -47,6 +47,10 @@ public class DataLoader implements CommandLineRunner {
         Category category2 = new Category("Szkoła");
         Category category3 = new Category("Kujon");
 
+        categoryService.save(category1);
+        categoryService.save(category2);
+        categoryService.save(category3);
+
         joke1.getCategories().add(category1);
         joke2.getCategories().add(category2);
         joke2.getCategories().add(category3);
@@ -61,9 +65,7 @@ public class DataLoader implements CommandLineRunner {
         joke1.setUser(jankowalski);
         joke2.setUser(jankowalski);
 
-        categoryService.save(category1);
-        categoryService.save(category2);
-        categoryService.save(category3);
+
 
         userService.save(jankowalski);
         userService.save(michalnowak);

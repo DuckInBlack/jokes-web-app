@@ -1,12 +1,16 @@
 package pl.pp.spring.jokeswebapp.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import java.util.HashSet;
+import java.util.Set;
 
+@Entity
 public class Category extends BaseEntity {
     private String name;
 
-    private List<Joke> jokes = new ArrayList<>();
+    @ManyToMany(mappedBy = "categories")
+    private Set<Joke> jokes = new HashSet<>();
 
     public Category() {
     }
@@ -22,11 +26,11 @@ public class Category extends BaseEntity {
         this.name = name;
     }
 
-    public List<Joke> getJokes() {
+    public Set<Joke> getJokes() {
         return jokes;
     }
 
-    public void setJokes(List<Joke> jokes) {
+    public void setJokes(Set<Joke> jokes) {
         this.jokes = jokes;
     }
 
