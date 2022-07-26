@@ -102,3 +102,8 @@ body {
   color: rgba(0, 0, 0, 0.65);
   transform: translateY(0);
 }
+
+.joke-info {
+  text-align: center;
+  font-size: 12px;
+}
