@@ -1,5 +1,7 @@
 package pl.pp.spring.jokeswebapp.services.db;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
@@ -14,6 +16,7 @@ import java.util.List;
 @Primary
 @Profile("db")
 public class JokeDbService implements JokeService {
+    private Logger log = LoggerFactory.getLogger(JokeDbService.class);
 
     private final JokeRepository jokeRepository;
 
@@ -23,6 +26,8 @@ public class JokeDbService implements JokeService {
 
     @Override
     public List<Joke> findAll() {
+        log.info("finding all");
+
         List<Joke> jokes = new ArrayList<>();
         jokeRepository.findAll().forEach(jokes::add);
         return jokes;
@@ -30,11 +35,15 @@ public class JokeDbService implements JokeService {
 
     @Override
     public Joke findById(Long id) {
+        log.info("finding by id: {}", id);
+
         return jokeRepository.findById(id).orElse(null);
     }
 
     @Override
     public Joke save(Joke joke) {
+        log.info("saving joke: {}", joke);
+
         System.out.println("JokeDBService");
         return jokeRepository.save(joke);
     }

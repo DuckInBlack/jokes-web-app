@@ -26,6 +26,8 @@ public class UserDbService implements UserService {
 
     @Override
     public List<User> findAll() {
+        log.info("finding all");
+
         List<User> users = new ArrayList<>();
         userRepository.findAll().forEach(users::add);
         return users;
@@ -33,12 +35,15 @@ public class UserDbService implements UserService {
 
     @Override
     public User findById(Long id) {
+        log.info("finding by id: {}", id);
+
         return userRepository.findById(id).orElse(null);
     }
 
     @Override
     public User save(User user) {
         log.info("saving user: {}", user.getUsername());
+
         return userRepository.save(user);
     }
 }
