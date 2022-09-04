@@ -33,35 +33,43 @@ class UserDbServiceTest {
     @Test
     void findAllShouldReturnEmpty() {
         when(userRepository.findAll()).thenReturn(new HashSet<>());
+
         List<User> users = userDbService.findAll();
+
         assertEquals(0, users.size());
     }
 
     @Test
     void findAllShouldReturnOneElement() {
         when(userRepository.findAll()).thenReturn(Set.of(user));
+
         List<User> users = userDbService.findAll();
+
         assertEquals(1, users.size());
     }
 
     @Test
     void findByNotExistId() {
         when(userRepository.findById(anyLong())).thenReturn(Optional.empty());
+
         User user = userDbService.findById(1L);
+
         assertNull(user);
     }
 
     @Test
     void findByExistId() {
         when(userRepository.findById(anyLong())).thenReturn(Optional.of(user));
+
         User user = userDbService.findById(1L);
+
         assertNotNull(user);
     }
 
     @Test
     void save() {
-
         userDbService.save(user);
+
         verify(userRepository).save(any(User.class));
     }
 }

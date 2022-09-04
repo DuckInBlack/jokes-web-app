@@ -35,11 +35,13 @@ public class JokeController {
         return "jokes/add";
     }
 
-    @RequestMapping("/jokes")
-    public String showIndex(Model model, @RequestParam("categoryId") Long categoryId) {
+    @GetMapping("/jokes")
+    public String showJokesForCategory(Model model, @RequestParam("categoryId") Long categoryId) {
         log.info("showJokesForCategory categoryId: {}", categoryId);
 
-        model.addAttribute("jokes", categoryService.findById(categoryId).getJokes());
+        Category category = categoryService.findById(categoryId);
+        Set<Joke> jokes = category == null ? new HashSet<>() : category.getJokes();
+        model.addAttribute("jokes", jokes);
         model.addAttribute("categories", categoryService.findAll());
         return "index";
     }

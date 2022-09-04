@@ -4,10 +4,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.pp.spring.jokeswebapp.model.Joke;
 import pl.pp.spring.jokeswebapp.services.CategoryService;
 import pl.pp.spring.jokeswebapp.services.JokeService;
 import pl.pp.spring.jokeswebapp.services.db.CategoryDbService;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Controller
 public class IndexController {
@@ -22,7 +29,7 @@ public class IndexController {
         this.categoryService = categoryService;
     }
 
-    @RequestMapping({"", "/", "/index"})
+    @GetMapping({"", "/", "/index"})
     public String showIndex(Model model) {
         log.info("showMainPage");
 

@@ -33,6 +33,7 @@ class JokeDbServiceTest {
     @Test
     void findAllShouldReturnEmpty() {
         when(jokeRepository.findAll()).thenReturn(new HashSet<>());
+
         List<Joke> jokes = jokeDbService.findAll();
 
         assertEquals(0, jokes.size());
@@ -41,6 +42,7 @@ class JokeDbServiceTest {
     @Test
     void findAllShouldReturnOneElement() {
         when(jokeRepository.findAll()).thenReturn(Set.of(joke));
+
         List<Joke> jokes = jokeDbService.findAll();
 
         assertEquals(1, jokes.size());
@@ -49,6 +51,7 @@ class JokeDbServiceTest {
     @Test
     void findByNotExistId() {
         when(jokeRepository.findById(anyLong())).thenReturn(Optional.empty());
+
         Joke joke = jokeDbService.findById(1L);
 
         assertNull(joke);
@@ -57,6 +60,7 @@ class JokeDbServiceTest {
     @Test
     void findByExistId() {
         when(jokeRepository.findById(anyLong())).thenReturn(Optional.of(joke));
+
         Joke joke = jokeDbService.findById(1L);
 
         assertNotNull(joke);
@@ -65,6 +69,7 @@ class JokeDbServiceTest {
     @Test
     void save() {
         jokeDbService.save(joke);
+
         verify(jokeRepository).save(any(Joke.class));
     }
 }

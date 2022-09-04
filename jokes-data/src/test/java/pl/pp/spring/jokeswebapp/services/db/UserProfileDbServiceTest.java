@@ -33,35 +33,43 @@ class UserProfileDbServiceTest {
     @Test
     void findAllShouldReturnEmpty() {
         when(userProfileRepository.findAll()).thenReturn(new HashSet<>());
+
         List<UserProfile> userProfiles = userProfileDbService.findAll();
+
         assertEquals(0, userProfiles.size());
     }
 
     @Test
     void findAllShouldReturnOneElement() {
         when(userProfileRepository.findAll()).thenReturn(Set.of(userProfile));
+
         List<UserProfile> userProfiles = userProfileDbService.findAll();
+
         assertEquals(1, userProfiles.size());
     }
 
     @Test
     void findByNotExistId() {
         when(userProfileRepository.findById(anyLong())).thenReturn(Optional.empty());
+
         UserProfile userProfile = userProfileDbService.findById(1L);
+
         assertNull(userProfile);
     }
 
     @Test
     void findByExistId() {
         when(userProfileRepository.findById(anyLong())).thenReturn(Optional.of(userProfile));
+
         UserProfile userProfile = userProfileDbService.findById(1L);
+
         assertNotNull(userProfile);
     }
 
     @Test
     void save() {
-
         userProfileDbService.save(userProfile);
+
         verify(userProfileRepository).save(any(UserProfile.class));
     }
 }

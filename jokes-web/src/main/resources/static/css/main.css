@@ -26,7 +26,7 @@ body {
     background-color: #009879;
     border: 1px solid black;
     border-radius: 5px;
-    width: 180px;
+    width: 150px;
     padding: 3px;
     text-align: center;
 }
@@ -75,59 +75,31 @@ body {
      padding-left: 10px;
 }
 
-.main-button {
-  text-align: center;
-  background-color: #DDD;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
-  box-sizing: border-box;
-  width: 200px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.main-button:hover,
-.main-button:focus {
-  border-color: rgba(0, 0, 0, 0.15);
-  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
-  color: rgba(0, 0, 0, 0.65);
-  transform: translateY(-2px);
-}
-
-.main-button:active {
-  background-color: #F0F0F1;
-  border-color: rgba(0, 0, 0, 0.15);
-  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
-  color: rgba(0, 0, 0, 0.65);
-  transform: translateY(0);
-}
-
 .joke-info {
-  text-align: center;
-  font-size: 12px;
+    font-size: 12px;
+    text-align: center;
 }
 
 #menu a {
-  display: block;
-  text-decoration: none;
-  color: white;
-  padding: 15ps;
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px;
 }
 
-#menu a: hover {
-  cursor: pointer;
-  background-color: #777;
+#menu a:hover {
+    background-color: #777;
+    cursor: pointer;
 }
 
 #menu {
-  width: 900px;
-  margin-left: auto;
-  margin-right auto;
-  background-color: #333;
-  color: white;
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #333;
+    color: white;
 }
 
 .menu-item {
-  float: left;
+    float: left;
 }

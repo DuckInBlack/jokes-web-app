@@ -69,7 +69,6 @@ class CategoryDbServiceTest {
 
     @Test
     void save() {
-
         categoryDbService.save(category);
 
         verify(categoryRepository).save(any(Category.class));
