@@ -32,7 +32,7 @@ public class CategoryController {
 
     @GetMapping("/categories/add")
     public String showAddCategoryForm(Model model) {
-        log.info("showCategoryForm");
+        log.info("showAddCategoryForm");
 
         model.addAttribute("category", new Category());
         return "categories/save";
@@ -40,11 +40,20 @@ public class CategoryController {
 
     @GetMapping("/categories/{categoryId}/edit")
     public String showEditCategoryForm(@PathVariable Long categoryId, Model model) {
-        log.info("showCategoryForm");
+        log.info("showEditCategoryForm");
 
         Category category = categoryService.findById(categoryId);
         model.addAttribute("category", category);
+
         return "categories/save";
+    }
+
+    @GetMapping("/categories/{categoryId}/delete")
+    public String deleteCategoryForm(@PathVariable Long categoryId) {
+        log.info("deleteCategoryForm");
+
+        categoryService.deleteById(categoryId);
+        return "redirect:/categories";
     }
 
     @PostMapping("/categories/save")

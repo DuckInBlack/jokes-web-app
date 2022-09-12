@@ -47,4 +47,10 @@ public class UserProfileDbService implements UserProfileService {
         System.out.println("UserProfileDBService");
         return userProfileRepository.save(userProfile);
     }
+
+    @Override
+    public void deleteById(Long id) {
+        log.info("delete userProfile by id: {}", id);
+        userProfileRepository.deleteById(id);
+    }
 }

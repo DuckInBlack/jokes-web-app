@@ -46,4 +46,16 @@ public class CategoryDbService implements CategoryService {
 
         return categoryRepository.save(category);
     }
+
+    @Override
+    public void deleteById(Long id) {
+        log.info("delete category by id: {}", id);
+
+        Category category = categoryRepository.findById(id).orElseThrow();
+        category.getJokes().forEach(joke -> {
+            joke.getCategories().remove(category);
+        });
+
+        categoryRepository.deleteById(id);
+    }
 }

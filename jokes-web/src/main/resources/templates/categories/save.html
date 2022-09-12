@@ -19,7 +19,7 @@
 <div id="form-container">
     <form method="post" th:action="@{/categories/save}" th:object="${category}">
         <input type="hidden" th:field="*{id}">
-        <input type="text" placeholder="Nazwa kategori" th:field="*{name}">
+        <input type="text" placeholder="Nazwa kategorii" th:field="*{name}">
 
         <input type="submit" value="Zapisz">
 
