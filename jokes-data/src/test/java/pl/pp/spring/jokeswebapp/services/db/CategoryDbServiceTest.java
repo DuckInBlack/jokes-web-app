@@ -5,6 +5,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import pl.pp.spring.jokeswebapp.exceptions.NotFoundException;
 import pl.pp.spring.jokeswebapp.model.Category;
 import pl.pp.spring.jokeswebapp.repositories.CategoryRepository;
 
@@ -53,9 +54,8 @@ class CategoryDbServiceTest {
     void findByNotExistId() {
         when(categoryRepository.findById(anyLong())).thenReturn(Optional.empty());
 
-        Category category = categoryDbService.findById(1L);
+        assertThrows(NotFoundException.class, () -> categoryDbService.findById(1L));
 
-        assertNull(category);
     }
 
     @Test

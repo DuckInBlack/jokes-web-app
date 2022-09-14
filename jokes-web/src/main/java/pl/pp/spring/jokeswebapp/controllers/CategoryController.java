@@ -21,7 +21,6 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
-
     @GetMapping({"/categories"})
     public String showCategoriesList(Model model) {
         log.info("showCategoriesList");
