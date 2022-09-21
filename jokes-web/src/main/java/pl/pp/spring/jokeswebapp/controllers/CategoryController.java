@@ -55,19 +55,6 @@ public class CategoryController {
         return "redirect:/categories";
     }
 
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ExceptionHandler(NotFoundException.class)
-    public ModelAndView handleNotFound(Exception exception) {
-        log.warn("Handle not found error: {}", exception.getMessage());
-
-        ModelAndView modelAndView = new ModelAndView();
-
-        modelAndView.setViewName("errors/404");
-        modelAndView.addObject("message", exception.getMessage());
-
-        return modelAndView;
-    }
-
     @PostMapping("/categories/save")
     public String processCategoryForm(@ModelAttribute Category category) {
         log.info("processCategoryForm");
