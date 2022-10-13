@@ -5,9 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.pp.spring.jokeswebapp.exceptions.NotFoundException;
-import pl.pp.spring.jokeswebapp.model.Category;
 import pl.pp.spring.jokeswebapp.model.Joke;
-import pl.pp.spring.jokeswebapp.services.CategoryService;
 import pl.pp.spring.jokeswebapp.services.JokeService;
 
 import java.net.URI;
@@ -67,6 +65,23 @@ public class JokeRestController {
 
         joke.setId(id);
         Joke savedJoke = jokeService.save(joke);
+        return ResponseEntity.ok(savedJoke);
+    }
+
+    @PatchMapping("/api/jokes/{id}")
+    public ResponseEntity<Joke> partialUpdate(@RequestBody Joke joke, @PathVariable Long id) {
+        log.info("partialUpdate");
+        Joke newJoke = jokeService.findById(id);
+
+        if (joke.getTitle() != null) {
+            newJoke.setTitle(joke.getTitle());
+        }
+
+        if (joke.getContent() != null) {
+            newJoke.setContent(joke.getContent());
+        }
+
+        Joke savedJoke = jokeService.save(newJoke);
         return ResponseEntity.ok(savedJoke);
     }
 }
